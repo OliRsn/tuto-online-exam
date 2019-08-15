@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 db_url = 'localhost:54320'
 db_name = 'online-exam'
 db_user = 'postgres'
-db_password = '0NLIN3-ex4m'
+db_password = 'onlineexam'
 engine = create_engine(f'postgresql://{db_user}:{db_password}@{db_url}/{db_name}')
 Session = sessionmaker(bind=engine)
 

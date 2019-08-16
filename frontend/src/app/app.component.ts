@@ -17,7 +17,9 @@ import * as Auth0 from 'auth0-web';
     <div style="text-align:center">
       <h1>Exams</h1>
     </div>
-    <router-outlet></router-outlet>
+    <div class="view-container">
+      <router-outlet></router-outlet>
+    </div>
   `,
   styleUrls: ['./app.component.css']
 })

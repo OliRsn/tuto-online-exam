@@ -2,7 +2,7 @@
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from .auth import AuthError, requires_auth
+from .auth import AuthError, requires_auth, requires_role
 from .entities.entity import Session, engine, Base
 from .entities.exam import Exam, ExamSchema
 
@@ -47,6 +47,17 @@ def add_exam():
     new_exam = ExamSchema().dump(exam).data
     session.close()
     return jsonify(new_exam), 201
+
+
+@app.route('/exams/<examId>', methods=['DELETE'])
+@requires_role('user')
+def delete_exam(examId):
+    session = Session()
+    exam = session.query(Exam).filter_by(id=examId).first()
+    session.delete(exam)
+    session.commit()
+    session.close()
+    return '', 201
 
 
 @app.errorhandler(AuthError)

@@ -2,7 +2,7 @@ import * as Auth0 from 'auth0-web';
 import {CallbackComponent} from './callback.component';
 
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatButtonModule, MatCardModule} from '@angular/material';
+import {MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
   ],
   providers: [ExamsApiService],
   bootstrap: [AppComponent]

@@ -50,7 +50,7 @@ def add_exam():
 
 
 @app.route('/exams/<examId>', methods=['DELETE'])
-@requires_role('user')
+@requires_role('admin')
 def delete_exam(examId):
     session = Session()
     exam = session.query(Exam).filter_by(id=examId).first()
